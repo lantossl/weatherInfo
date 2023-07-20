@@ -106,6 +106,7 @@ def show_weather():
         cloudiness_percent = weather_data['clouds']['all']
         sunrise_timestamp = weather_data['sys']['sunrise']
         sunset_timestamp = weather_data['sys']['sunset']
+        timezone_offset_seconds = weather_data['timezone']
 
         # Generate dynamic weather description using the OpenAI API
         weather_description_ai = generate_weather_description(weather_data)
@@ -113,10 +114,10 @@ def show_weather():
         # Generate weather advice for activities and clothing
         weather_advice = generate_weather_advice(weather_data)
 
-        # Convert sunrise and sunset timestamps to human-readable format
-        sunrise_time = datetime.datetime.fromtimestamp(sunrise_timestamp).strftime('%H:%M')
-        sunset_time = datetime.datetime.fromtimestamp(sunset_timestamp).strftime('%H:%M')
-
+        # Convert sunrise and sunset timestamps to local timezone
+        sunrise_time = datetime.datetime.fromtimestamp(sunrise_timestamp + timezone_offset_seconds).strftime('%H:%M')
+        sunset_time = datetime.datetime.fromtimestamp(sunset_timestamp + timezone_offset_seconds).strftime('%H:%M')
+      
         # Render the template with weather data and separate descriptions
         return render_template('weather.html', city=city, temperature=temperature_celsius,
                                weather_description_json=weather_description_json,
