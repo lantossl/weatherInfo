@@ -19,7 +19,22 @@
         <p>{{ weather_description_ai }}</p>
     </div>
     
+    <p><strong>Feels Like:</strong> {{ feels_like_celsius }} &#8451;</p>
+    <p><strong>Minimum Temperature:</strong> {{ temp_min_celsius }} &#8451;</p>
+    <p><strong>Maximum Temperature:</strong> {{ temp_max_celsius }} &#8451;</p>
+    <p><strong>Pressure:</strong> {{ pressure_hpa }} hPa</p>
     <p><strong>Humidity:</strong> {{ humidity }}%</p>
+    <p><strong>Visibility:</strong> {{ visibility_meters }} meters</p>
     <p><strong>Wind Speed:</strong> {{ wind_speed }} m/s</p>
+    <p><strong>Wind Degrees:</strong> {{ wind_degrees }} degrees</p>
+    <p><strong>Cloudiness:</strong> {{ cloudiness_percent }}%</p>
+    <p><strong>Sunrise Time:</strong> {{ sunrise_timestamp }}</p>
+    <p><strong>Sunset Time:</strong> {{ sunset_timestamp }}</p>
+    
+    <!-- Weather Advice from OpenAI API -->
+    <div>
+        <h2>Weather Advice:</h2>
+        <p>{{ weather_advice }}</p>
+    </div>
 </body>
 </html>
