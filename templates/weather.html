@@ -5,20 +5,8 @@
 </head>
 <body>
     <h1>Weather Information for {{ city }}</h1>
-    <p><strong>Current Temperature:</strong> {{ temperature }} &#8451;</p>
-    
-    <!-- Original Weather Description from JSON -->
-    <div>
-        <h2>Original Weather Description:</h2>
-        <p>{{ weather_description_json }}</p>
-    </div>
-
-    <!-- Dynamic Weather Briefing from OpenAI API -->
-    <div>
-        <h2>Dynamic Weather Briefing:</h2>
-        <p>{{ weather_description_ai }}</p>
-    </div>
-    
+    <p><strong>Current Temperature:</strong> {{ temperature }} &#8451;</p>  
+    <p><strong>Description:</strong> {{ weather_description_json }} </p>
     <p><strong>Feels Like:</strong> {{ feels_like_celsius }} &#8451;</p>
     <p><strong>Minimum Temperature:</strong> {{ temp_min_celsius }} &#8451;</p>
     <p><strong>Maximum Temperature:</strong> {{ temp_max_celsius }} &#8451;</p>
@@ -33,7 +21,7 @@
 
     <!-- Weather Advice from OpenAI API -->
     <div>
-        <h2>Weather Advice:</h2>
+        <h2>Weather Advice and description from the AI:</h2>
         <p>{{ weather_advice }}</p>
     </div>
 </body>
