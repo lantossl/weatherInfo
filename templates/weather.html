@@ -2,12 +2,46 @@
 <html>
 <head>
     <title>Weather Information</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Weather Information for {{ city }}</h1>
-    <p><strong>Current Temperature:</strong> {{ temperature }} &#8451;</p>
-    <p><strong>Weather Description:</strong> {{ weather_description }}</p>
-    <p><strong>Humidity:</strong> {{ humidity }}%</p>
-    <p><strong>Wind Speed:</strong> {{ wind_speed }} m/s</p>
+    <div class="container mt-4">
+        <h1 class="mb-4">Weather Information for {{ city }}</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Current Temperature:</strong> {{ temperature }} &#8451;</p>
+                <p><strong>Feels Like:</strong> {{ feels_like_celsius }} &#8451;</p>
+                <p><strong>Minimum Temperature:</strong> {{ temp_min_celsius }} &#8451;</p>
+                <p><strong>Maximum Temperature:</strong> {{ temp_max_celsius }} &#8451;</p>
+                <p><strong>Humidity:</strong> {{ humidity }}%</p>
+                <p><strong>Visibility:</strong> {{ visibility_meters }} meters</p>
+                <p><strong>Wind Speed:</strong> {{ wind_speed }} m/s</p>
+                <p><strong>Wind Degrees:</strong> {{ wind_degrees }} degrees</p>
+                <p><strong>Cloudiness:</strong> {{ cloudiness_percent }}%</p>
+                <p><strong>Sunrise Time:</strong> {{ sunrise_time }}</p>
+                <p><strong>Sunset Time:</strong> {{ sunset_time }}</p>
+            </div>
+            <div class="col-md-6">
+                <!-- Original Weather Description from JSON -->
+                <div class="mb-4">
+                    <h2>Weather Description:</h2>
+                    <p>{{ weather_description }}</p>
+                </div>
+
+                <!-- Weather Advice from OpenAI API -->
+                <div>
+                    <h2>Weather Advice:</h2>
+                    <p>{{ weather_advice }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery scripts at the end of the body tag -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
