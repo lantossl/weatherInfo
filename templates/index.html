@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Information</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Weather Information App</h1>
+        <p>Click the button below to get weather information for your current location:</p>
+
+        <!-- Add a button to get user's geolocation -->
+        <button id="getLocationBtn" class="btn btn-primary">Get My Location</button>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery scripts at the end of the body tag -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Add JavaScript code to get user's geolocation -->
+    <script>
+        // Function to handle the geolocation button click
+        function getGeolocation() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        // Function to display the geolocation coordinates
+        function showPosition(position) {
+            // Get the latitude and longitude
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+
+            // Redirect to the weather page with the coordinates as query parameters
+            window.location.href = `/weather?lat=${lat}&lon=${lon}`;
+        }
+
+        // Attach click event to the geolocation button
+        document.getElementById("getLocationBtn").addEventListener("click", getGeolocation);
+    </script>
+</body>
+</html>

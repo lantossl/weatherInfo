@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 import os
 import openai
@@ -50,17 +50,27 @@ def generate_weather_advice(weather_data):
 
 # Flask app route to show weather information
 @app.route('/')
+def index():
+    # Render the index.html page that contains the geolocation button
+    return render_template('index.html')
+  
 def show_weather():
     # Replace 'OPENWEATHERMAP_API_KEY' with the name of your environment variable
     api_key = os.environ.get('OPENWEATHERMAP_API_KEY')
     
     # If USE_CURRENT_COORDINATES is True, use the current coordinates (to be implemented later)
     # Otherwise, use the static coordinates for Budapest
-    if USE_CURRENT_COORDINATES:
-        lat, lon = get_current_coordinates()
-    else:
-        lat, lon = BUDAPEST_LAT, BUDAPEST_LON
-    
+
+    # Get the latitude and longitude from the query parameters
+    lat = float(request.args.get('lat'))
+    lon = float(request.args.get('lon'))
+
+@app.route('/weather')
+def get_weather():
+    # Get the latitude and longitude from the query parameters
+    lat = float(request.args.get('lat'))
+    lon = float(request.args.get('lon'))
+  
     # Get weather data from OpenWeatherMap API
     weather_data = get_weather_data(lat, lon, api_key)
 
