@@ -11,17 +11,55 @@
 
         <div class="row">
             <div class="col-md-6">
-                <p><strong>Current Temperature:</strong> {{ temperature }} &#8451;</p>
-                <p><strong>Feels Like:</strong> {{ feels_like_celsius }} &#8451;</p>
-                <p><strong>Minimum Temperature:</strong> {{ temp_min_celsius }} &#8451;</p>
-                <p><strong>Maximum Temperature:</strong> {{ temp_max_celsius }} &#8451;</p>
-                <p><strong>Humidity:</strong> {{ humidity }}%</p>
-                <p><strong>Visibility:</strong> {{ visibility_meters }} meters</p>
-                <p><strong>Wind Speed:</strong> {{ wind_speed }} m/s</p>
-                <p><strong>Wind Degrees:</strong> {{ wind_degrees }} degrees</p>
-                <p><strong>Cloudiness:</strong> {{ cloudiness_percent }}%</p>
-                <p><strong>Sunrise Time:</strong> {{ sunrise_time }}</p>
-                <p><strong>Sunset Time:</strong> {{ sunset_time }}</p>
+                <div class="table-responsive"> <!-- Add the 'table-responsive' class -->
+                  <h2>Raw weather data:</h2>
+                  <table class="table">
+          			    <tr>
+              				<th>Current Temperature</th>
+              				<td>{{ temperature }} &#8451;</td>
+          			    </tr>
+          			    <tr>
+              				<th>Feels Like</th>
+              				<td>{{ feels_like_celsius }} &#8451;</td>
+          			    </tr>
+          			    <tr>
+              				<th>Minimum Temperature</th>
+              				<td>{{ temp_min_celsius }} &#8451;</td>
+          			    </tr>
+          			    <tr>
+          				    <th>Maximum Temperature</th>
+          				    <td>{{ temp_max_celsius }} &#8451;</td>
+          			    </tr>
+          			    <tr>
+          				    <th>Humidity</th>
+          				    <td>{{ humidity }}%</td>
+          			    </tr>
+          			    <tr>
+          				    <th>Visibility</th>
+          				    <td>{{ visibility_meters }} meters</td>
+          			    </tr>
+          			    <tr>
+          				<th>Wind Speed</th>
+          				<td>{{ wind_speed }} m/s</td>
+          			    </tr>
+          			    <tr>
+          				<th>Wind Degrees</th>
+          				<td>{{ wind_degrees }} degrees</td>
+          			    </tr>
+          			    <tr>
+          				<th>Cloudiness</th>
+          				<td>{{ cloudiness_percent }}%</td>
+          			    </tr>
+          			    <tr>
+          				<th>Sunrise Time</th>
+          				<td>{{ sunrise_time }}</td>
+          			    </tr>
+          			    <tr>
+          				<th>Sunset Time</th>
+          				<td>{{ sunset_time }}</td>
+          			    </tr>
+          			</table>
+                </div>
             </div>
             <div class="col-md-6">
                 <!-- Original Weather Description from JSON -->
